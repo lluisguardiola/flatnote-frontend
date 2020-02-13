@@ -1,5 +1,7 @@
 import React from 'react'
 import { Box, FormControl, FormLabel, Input, Button  } from "@chakra-ui/core";
+import {connect} from 'react-redux'
+import {loginUser} from '../actions/users'
 
 class Login extends React.Component {
     constructor(){
@@ -28,15 +30,19 @@ class Login extends React.Component {
             body: JSON.stringify(this.state)
         }
         
+        this.setState({
+            username: '',
+            password: ''
+        })
+
         fetch('http://localhost:4000/auth', reqObj)
         .then(resp => resp.json())
         .then(user => {
+            // store user data in redux store
+            // redirect to about page
+            this.props.loginUser(user)
             console.log(user)
             
-            // this.setState({
-            //     username: '',
-            //     password: ''
-            // })
         })
 
     }
@@ -88,4 +94,10 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+const mapDispatchToProps = dispatch => {
+    return {
+        loginUser: user => dispatch(loginUser(user))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)
