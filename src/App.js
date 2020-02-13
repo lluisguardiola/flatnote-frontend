@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
+import NewNoteForm from './components/notes/NewNoteForm'
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/notes/new" component={NewNoteForm} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -20,9 +20,10 @@ class SignUp extends React.Component {
         e.preventDefault()
 
         const reqObj = {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(this.state)
         }
@@ -31,8 +32,12 @@ class SignUp extends React.Component {
         fetch('http://localhost:4000/users', reqObj)
         .then(resp => resp.json())
         .then(user => {
-            alert(user)
-            this.props.history.push('/login')
+            if(user.error) {
+                alert('Error. User not created.')
+                return
+            } else {
+                this.props.history.push('/login')
+            }
         })
         
         this.setState({
@@ -43,19 +48,6 @@ class SignUp extends React.Component {
     
     render () {
         return (
-            // <div className="signup">
-            //     <form onSubmit={this.handleOnSubmit}>
-            //         <label>username: </label>
-            //         <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange} />
-            //         <br />
-            //         <br />
-            //         <label>password: </label>
-            //         <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange} />
-            //         <br />
-            //         <br />
-            //         <input type="submit" value="Sign Up"/>
-            //     </form>
-            // </div>
             <div className="signup">
                 <FormControl 
                     ml="2%"

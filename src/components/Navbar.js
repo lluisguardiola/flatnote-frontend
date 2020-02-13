@@ -11,6 +11,14 @@ class Navbar extends React.Component {
 		this.props.logoutUser()
 		this.props.history.push('/login')
 	}
+
+	handleOnClick = () => {
+		if (!this.props.auth) {
+			return
+		}
+		this.props.history.push('/dashboard')
+	}
+	
 	render() {
 		const h1styles = {
 			color: "white",
@@ -32,6 +40,7 @@ class Navbar extends React.Component {
 						backgroundColor="messenger.600" 
 						color="#ffffff"
 						size="md"
+						onClick={this.handleOnClick}
 					>
 						Dashboard
 					</Button>

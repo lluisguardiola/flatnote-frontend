@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Box} from "@chakra-ui/core"
+import NewNoteForm from './notes/NewNoteForm'
 
 class Dashboard extends React.Component {
 
@@ -10,11 +12,23 @@ class Dashboard extends React.Component {
     }
 
     render(){
+
+        const h2styles = {
+			color: "black",
+			fontSize: "60px"
+        }
+        
         return (
-            <div className="about">
-                <h2>About FlatNote</h2>
-                <p>sd,fjasdfkasjdfhkjasdfhkdjfkjds</p>
-            </div>
+            <Box 
+                ml="3"
+            >
+                <Box >
+                    <h2 style={h2styles}>Welcome, {this.props.auth.username}</h2>
+                </Box>
+                <Box>
+                    <NewNoteForm />
+                </Box>
+            </Box>
         )
     }
 }
