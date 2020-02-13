@@ -1,6 +1,7 @@
 import React from 'react'
-import {Box, Button, Icon} from "@chakra-ui/core"
+import {Box, Button} from "@chakra-ui/core"
 import {FaBook} from 'react-icons/fa'
+import { connect } from 'react-redux'
 
 
 class Navbar extends React.Component {
@@ -36,11 +37,17 @@ class Navbar extends React.Component {
 						pos="absolute"
 						right="5"
 					>
-						Log in
+						{this.props.auth ? 'Logout' : 'Log In'}
 					</Button>
 				</Box>
 		)
 	}
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+	return {
+	  auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps)(Navbar)
