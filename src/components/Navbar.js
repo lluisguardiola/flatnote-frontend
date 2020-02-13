@@ -2,9 +2,15 @@ import React from 'react'
 import {Box, Button} from "@chakra-ui/core"
 import {FaBook} from 'react-icons/fa'
 import { connect } from 'react-redux'
+import {logoutUser} from '../actions/auth'
+import { withRouter } from 'react-router-dom';
 
 
 class Navbar extends React.Component {
+	handleLogout = () => {
+		this.props.logoutUser()
+		this.props.history.push('/login')
+	}
 	render() {
 		const h1styles = {
 			color: "white",
@@ -36,6 +42,7 @@ class Navbar extends React.Component {
 						size="md"
 						pos="absolute"
 						right="5"
+						onClick={this.handleLogout}
 					>
 						{this.props.auth ? 'Logout' : 'Log In'}
 					</Button>
@@ -50,4 +57,10 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps)(Navbar)
+const mapDispatchToProps = dispatch => {
+	return {
+		logoutUser: () => {dispatch(logoutUser())}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar))

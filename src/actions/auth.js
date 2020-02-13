@@ -4,3 +4,9 @@ export const loginUser = user => {
         user
     }
 }
+
+export const logoutUser = () => {
+    return {
+        type: 'LOGOUT_USER'
+    }
+}
