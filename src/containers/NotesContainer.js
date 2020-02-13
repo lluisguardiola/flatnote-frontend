@@ -1,15 +1,37 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import NotePreview from '../components/notes/NotePreview'
 
 class NotesContainer extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            notes: null
+        }
+    }
+    
     renderNotes = () => {
-        console.log('renderNotes ---- notes container')
+        if (!this.state.notes) {
+            return
+        }
+
+        return this.state.notes.map(noteObj => {
+            return <NotePreview key={noteObj.id} note={noteObj} />
+        })
+    }
+
+    componentDidMount = () => {
+        fetch(`http://localhost:4000/users/${this.props.user.id}`)
+            .then(resp => resp.json())
+            .then(data => this.setState({
+                notes: data
+            }))
     }
 
     render () {
         return (
             <div className="NotesContainer">
-                {this.renderNotes}
+                {this.renderNotes()}
             </div>
         )
     }
