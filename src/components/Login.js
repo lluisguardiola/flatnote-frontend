@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box, FormControl, FormLabel, Input, Button} from "@chakra-ui/core";
 import {connect} from 'react-redux'
-import {loginUser} from '../actions/users'
+import {loginUser} from '../actions/auth'
 
 class Login extends React.Component {
     constructor(){
@@ -42,7 +42,7 @@ class Login extends React.Component {
             // redirect to about page
             this.props.loginUser(user)
             console.log(user)
-            this.props.history.push('/about')
+            this.props.history.push('/dashboard')
             
         })
 

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import users from './users';
+import auth from './auth';
 import notes from './notes';
 import tags from './tags';
 
 
 export default combineReducers({
-	users,
+	auth,
 	notes,
 	tags
 });
