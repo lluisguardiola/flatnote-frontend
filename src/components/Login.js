@@ -41,9 +41,7 @@ class Login extends React.Component {
             // store user data in redux store
             // redirect to about page
             this.props.loginUser(user)
-            console.log(user)
             this.props.history.push('/dashboard')
-            
         })
 
     }
@@ -52,12 +50,12 @@ class Login extends React.Component {
         return (
             <div className="login">
                 <FormControl 
-                    ml="2%"
-                    mt="2%"
+                    ml="5"
+                    mt="5"
                 >
                     <form onSubmit={this.handleOnSubmit}>
                         <Box width={['45%', 0.35, 0.25, 0.15]}>
-                            <FormLabel htmlFor="username">username: </FormLabel>
+                            <FormLabel htmlFor="username">username </FormLabel>
                             <Input 
                                 type="text" 
                                 name="username" 
@@ -70,7 +68,7 @@ class Login extends React.Component {
                         </Box>
                         <br />
                         <Box width={['45%', 0.35, 0.25, 0.15]}>
-                            <FormLabel htmlFor="password">password: </FormLabel>
+                            <FormLabel htmlFor="password">password </FormLabel>
                             <Input 
                                 type="text" 
                                 name="password" 
@@ -82,7 +80,10 @@ class Login extends React.Component {
                             />
                         </Box>
                         <br />
-                        <Button 
+                        <Button  
+                            variant="solid" 
+                            backgroundColor="messenger.600" 
+                            color="#ffffff"
                             type="submit" 
                             value="Login"
                         >
