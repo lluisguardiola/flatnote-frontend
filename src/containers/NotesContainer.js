@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import NotePreview from '../components/notes/NotePreview'
+import {Box} from "@chakra-ui/core"
 
 class NotesContainer extends React.Component {
     constructor(){
@@ -9,8 +10,8 @@ class NotesContainer extends React.Component {
             notes: null
         }
     }
-    
-    renderNotes = () => {
+
+    renderNotesPreviews = () => {
         if (!this.state.notes) {
             return
         }
@@ -31,7 +32,29 @@ class NotesContainer extends React.Component {
     render () {
         return (
             <div className="NotesContainer">
-                {this.renderNotes()}
+                <Box
+                    d="flex"
+                    alignItems="baseline"
+                >
+                    <Box 
+                        as="span"
+                        d="flex"
+                        border="1px"
+                        m="3"
+                        p={10}
+                    >
+                        {this.renderNotesPreviews()}
+                    </Box>
+                    <Box 
+                        as="span"
+                        d="flex"
+                        border="1px"
+                        m="3"
+                        p={10}
+                    >
+                        render show note component
+                    </Box>
+                </Box>
             </div>
         )
     }

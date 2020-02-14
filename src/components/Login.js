@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, FormControl, FormLabel, Input, Button} from "@chakra-ui/core";
+import {Box, FormControl, FormLabel, Input, Button, Text} from "@chakra-ui/core";
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/auth'
 
@@ -91,6 +91,23 @@ class Login extends React.Component {
                         </Button>
                     </form>
                 </FormControl>
+                <Box
+                    ml="5"
+                    mt="5"
+                >
+                    <Text>
+                        Don't have an account? &nbsp;
+                        <Button  
+                            variant="solid" 
+                            backgroundColor="green.400" 
+                            color="#ffffff"
+                            type="submit" 
+                            value="Login"
+                        >
+                            Sign Up
+                        </Button>
+                    </Text>
+                </Box>
             </div>
         )
     }

@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
                 ml="3"
             >
                 <Box >
-                    <h2 style={h2styles}>Welcome, {this.props.auth.username}</h2>
+                    <h2 style={h2styles}>{this.props.auth.username}'s Notes</h2>
                 </Box>
                 <Box>
                     <NotesContainer />
