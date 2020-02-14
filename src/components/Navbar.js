@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {Box, Button} from "@chakra-ui/core"
 import {FaBook} from 'react-icons/fa'
-import { connect } from 'react-redux'
 import {logoutUser} from '../actions/auth'
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+
 
 
 class Navbar extends React.Component {
@@ -35,15 +36,17 @@ class Navbar extends React.Component {
 					</Box>
 					<hr/>
 					<br/>
-					<Button 
-						variant="solid" 
-						backgroundColor="messenger.600" 
-						color="#ffffff"
-						size="md"
-						onClick={this.handleOnClick}
-					>
-						Dashboard
-					</Button>
+					<Link to="/">
+						<Button 
+							variant="solid" 
+							backgroundColor="messenger.600" 
+							color="#ffffff"
+							size="md"
+							onClick={this.handleOnClick}
+						>
+							Dashboard
+						</Button>
+					</Link>
 					<Button 
 						variant="solid" 
 						backgroundColor="messenger.600" 

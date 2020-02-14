@@ -2,6 +2,8 @@ import React from 'react'
 import {Box, FormControl, FormLabel, Input, Button, Text} from "@chakra-ui/core";
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/auth'
+import { Link } from 'react-router-dom';
+
 
 class Login extends React.Component {
     constructor(){
@@ -41,17 +43,21 @@ class Login extends React.Component {
             // store user data in redux store
             // redirect to about page
             this.props.loginUser(user)
-            this.props.history.push('/dashboard')
+            this.props.history.push('/')
         })
 
+    }
+
+    handleSignUpClick = () => {
+        
     }
     
     render () {
         return (
             <div className="login">
                 <FormControl 
-                    ml="5"
-                    mt="5"
+                    ml="2%"
+                    mt="2%"
                 >
                     <form onSubmit={this.handleOnSubmit}>
                         <Box width={['45%', 0.35, 0.25, 0.15]}>
@@ -97,15 +103,16 @@ class Login extends React.Component {
                 >
                     <Text>
                         Don't have an account? &nbsp;
-                        <Button  
-                            variant="solid" 
-                            backgroundColor="green.400" 
-                            color="#ffffff"
-                            type="submit" 
-                            value="Login"
-                        >
-                            Sign Up
-                        </Button>
+                        <Link to="/signup">
+                            <Button  
+                                variant="solid" 
+                                backgroundColor="green.400" 
+                                color="#ffffff"
+                                value="SignUp"
+                            >
+                                Sign Up
+                            </Button>
+                        </Link>
                     </Text>
                 </Box>
             </div>

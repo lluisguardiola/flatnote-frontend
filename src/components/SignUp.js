@@ -55,7 +55,7 @@ class SignUp extends React.Component {
                 >
                     <form onSubmit={this.handleOnSubmit}>
                         <Box width={['45%', 0.35, 0.25, 0.15]}>
-                            <FormLabel htmlFor="username">username: </FormLabel>
+                            <FormLabel htmlFor="username">username </FormLabel>
                             <Input 
                                 type="text" 
                                 name="username" 
@@ -68,7 +68,7 @@ class SignUp extends React.Component {
                         </Box>
                         <br />
                         <Box width={['45%', 0.35, 0.25, 0.15]}>
-                            <FormLabel htmlFor="password">password: </FormLabel>
+                            <FormLabel htmlFor="password">password </FormLabel>
                             <Input 
                                 type="text" 
                                 name="password" 
@@ -81,8 +81,10 @@ class SignUp extends React.Component {
                         </Box>
                         <br />
                         <Button 
-                            type="submit" 
-                            value="Sign Up"
+                            variant="solid" 
+                            backgroundColor="green.400" 
+                            color="#ffffff"
+                            value="SignUp"
                         >
                             Sign Up
                         </Button>

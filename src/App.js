@@ -15,7 +15,7 @@ class App extends React.Component {
         <div className="App">
             <Navbar />
           <Switch>
-            <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Dashboard} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/notes/new" component={NewNoteForm} />
