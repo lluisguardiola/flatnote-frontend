@@ -28,13 +28,12 @@ class SignUp extends React.Component {
             body: JSON.stringify(this.state)
         }
 
-        
+        debugger
         fetch('http://localhost:4000/users', reqObj)
         .then(resp => resp.json())
         .then(user => {
             if(user.error) {
-                alert('Error. User not created.')
-                return
+                alert(user.error)
             } else {
                 this.props.history.push('/login')
             }
@@ -84,6 +83,7 @@ class SignUp extends React.Component {
                             variant="solid" 
                             backgroundColor="green.400" 
                             color="#ffffff"
+                            type="submit"
                             value="SignUp"
                         >
                             Sign Up

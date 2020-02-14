@@ -31,21 +31,25 @@ class Login extends React.Component {
             },
             body: JSON.stringify(this.state)
         }
-        
-        this.setState({
-            username: '',
-            password: ''
-        })
 
         fetch('http://localhost:4000/auth', reqObj)
         .then(resp => resp.json())
         .then(user => {
             // store user data in redux store
-            // redirect to about page
-            this.props.loginUser(user)
-            this.props.history.push('/')
+            // redirect to dashboard
+            if (!user.error) {
+                this.props.loginUser(user)
+                this.props.history.push('/')
+            } else {
+                alert(user.error)
+                this.props.history.push('/login')
+            }
         })
 
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
     handleSignUpClick = () => {
