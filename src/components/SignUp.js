@@ -28,7 +28,6 @@ class SignUp extends React.Component {
             body: JSON.stringify(this.state)
         }
 
-        debugger
         fetch('http://localhost:4000/users', reqObj)
         .then(resp => resp.json())
         .then(user => {
