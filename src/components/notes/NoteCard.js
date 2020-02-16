@@ -9,9 +9,24 @@ class NoteCard extends React.Component {
 		this.props.history.push(`/notes/${this.props.note.id}/edit`)
 	}
 
-	// handleDeleteOnClick = e => {
+	handleDeleteOnClick = e => {
+		const confirmation = window.confirm('Are you sure you want to delete this note?')
 
-	// }
+		if (confirmation) {
+			fetch(`http://localhost:4000/notes/${this.props.note.id}`, {method: "DELETE"})
+			.then(resp => resp.json())
+			.then(note => {
+			if (note.error) {
+				alert(note.error)
+				return
+			}
+			this.props.rerenderNotes(this.props.note.id)
+		})
+		} else {
+			return
+		}
+
+	}
 
 	render () {
 		const h3styles = {
@@ -38,7 +53,7 @@ class NoteCard extends React.Component {
 					color="#ffffff"
 					type="submit" 
 					value="Delete Note"
-					// onClick={this.handleDeleteOnClick}
+					onClick={this.handleDeleteOnClick}
 					mt={4}
 					ml={2}
 				>

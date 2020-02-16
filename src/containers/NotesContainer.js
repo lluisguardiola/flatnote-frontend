@@ -58,7 +58,15 @@ class NotesContainer extends React.Component {
         }
 
         let showNote = this.state.notes.filter(note => note.id === this.state.showNote)[0]
-        return <NoteCard note={showNote}/>
+        return <NoteCard note={showNote} rerenderNotes={this.rerenderNotes}/>
+    }
+
+    rerenderNotes = (id) => {
+        const newNotesArr = this.state.notes.filter(note => note.id !== id)
+        this.setState({
+            notes: newNotesArr,
+            showNote: null
+        })
     }
 
     render () {
