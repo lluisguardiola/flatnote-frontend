@@ -1,7 +1,17 @@
 import React from 'react'
 import {Button} from "@chakra-ui/core"
+import {withRouter} from 'react-router-dom'
+
 
 class NoteCard extends React.Component {
+
+	handleEditOnClick = e => {
+		this.props.history.push(`/notes/${this.props.note.id}/edit`)
+	}
+
+	// handleDeleteOnClick = e => {
+
+	// }
 
 	render () {
 		const h3styles = {
@@ -17,6 +27,7 @@ class NoteCard extends React.Component {
 					color="#ffffff"
 					type="submit" 
 					value="Edit Note"
+					onClick={this.handleEditOnClick}
 					mt={4}
 				>
 					Edit
@@ -27,6 +38,7 @@ class NoteCard extends React.Component {
 					color="#ffffff"
 					type="submit" 
 					value="Delete Note"
+					// onClick={this.handleDeleteOnClick}
 					mt={4}
 					ml={2}
 				>
@@ -37,4 +49,4 @@ class NoteCard extends React.Component {
 	}
 }
 
-export default NoteCard
+export default (withRouter(NoteCard))

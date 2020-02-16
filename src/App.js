@@ -5,6 +5,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import NewNoteForm from './components/notes/NewNoteForm'
+import EditNoteForm from './components/notes/EditNoteForm';
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/notes/new" component={NewNoteForm} />
+            <Route path="/notes/:id/edit" component={EditNoteForm} />
           </Switch>
         </div>
       </BrowserRouter>
